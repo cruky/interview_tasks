@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 import pytest
 
-from src.smart_data_service import smart_data_publisher
+import smart_data_publisher
 
 # pylint: disable = "W0621"
 
