@@ -1,0 +1,8 @@
+**/.project
+**/.idea
+**/.venv
+**/.settings/
+**/*.log
+**/*.gz
+**/.mypy_cache/
+**/.pytest_cache/

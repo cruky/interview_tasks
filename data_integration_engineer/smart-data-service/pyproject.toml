@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "smart-data-service"
+version = "0.1.0"
+description = "Service that persists and reports measurements from smart meters to a database."
+authors = ["Kamil Kruk <kamil.kruk.geo@gmail.com>"]
+
+readme = 'README.md'
+
+repository = "https://github.com/cruky/interview_tasks"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pika = "^1.2.0"
+click = "^8.0.1"
+SQLAlchemy = "^1.4.15"
+pydantic = "^1.8.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^21.5b2"
+mypy = "^0.812"
+sqlalchemy-stubs = "^0.4"
+isort = "^5.8.0"
+pylint = "^2.8.3"
+
+[tool.poetry.scripts]
+smart_data_publisher = "smart_data_publisher:publish_smart_data_in_intervals"
+
+[tool.black]
+line-length = 120
+exclude = '''
+/(
+    \.git
+  | __pycache__
+  | \.venv
+  | \.pytest_cache
+  | \.mypy_cache
+  | postgres
+  | rabbitmq
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 120
+
+[tool.pylint.messages_control]
+disable = "C0330, C0326, C0114"
+
+[tool.pylint.format]
+max-line-length = "120"
+max-attributes = 8
+
+[tool.pylint.'MESSAGES CONTROL']
+extension-pkg-whitelist = "pydantic"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
